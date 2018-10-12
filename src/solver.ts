@@ -1,6 +1,6 @@
 import { Env, Opt } from './.';
 
-export abstract class Solver {
+export abstract class Solver<Y = number, L = number> {
   protected env: Env;
   protected opt: Opt;
 
@@ -22,8 +22,8 @@ export abstract class Solver {
    * @param state current state
    * @returns decided action
    */
-  public abstract decide(stateList: any): number;
-  public abstract learn(r1: number): void;
+  public abstract decide(stateList: any): Y;
+  public abstract learn(r1: L): void;
   public abstract reset(): void;
   public abstract toJSON(): object;
   public abstract fromJSON(json: {}): void;
